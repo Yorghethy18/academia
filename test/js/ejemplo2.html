@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <select name="paises" id="paises">
+    <option value="">Seleccione</option>
+    <option value="1">Perú</option>
+    <option value="2">Colombia</option>
+    <option value="3">Chile</option>
+    <option value="4">Paraguay</option>
+  </select>
+
+  <input type="text" id="idpais">
+
+
+  <script>
+    const paises = document.querySelector("#paises"); //<select>
+    const idpais = document.querySelector("#idpais"); //<input>
+
+    //<select> evento nativo CHANGE (minúscula)
+    paises.addEventListener("change", () => {
+      idpais.value = paises.value
+    });
+
+  </script>
+
+</body>
+</html>

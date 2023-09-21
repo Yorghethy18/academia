@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<h1>EVENTOS</h1>
+<p>Los botones solo saludarán...</p>
+
+  <button type="button" id="boton1">Botón1</button>
+  <button type="button" id="boton2">Botón2</button>
+  <button type="button" id="boton3">Botón3</button>
+
+  <script>
+    //Botones fueron creados en HTML, utilizando etiquetas, entonces, si requeremos controlar sus EVENTOS
+    //click, change, keypress, keyup, ready, etc. debemos REFERENCIALOS a través de un objeto
+    const b1 = document.getElementById("boton1");
+    const b2 = document.getElementById("boton2");
+
+    //ID, CLASES, ETIQUETAS, combinación de lo anterior...
+    //Similar a jQuery: $("#boton1").click();
+    const b3 = document.querySelector("#boton3"); 
+
+    //Eventos
+    //NO importa que evento sea, siempre se asignan con:
+    //Objeto.addEventListener("EVENTO", FUNCION);
+
+    //Forma 1: Función anónima
+    b1.addEventListener("click", function (){
+      console.log("Botón 1");
+    });
+
+    //Forma 2: Función de flecha: () => {}
+    b2.addEventListener("click", () => {
+      console.log("Botón 2");
+    });
+
+    //Forma 3: Se llama a una función
+    function saludar(){
+      console.log("Botón 3");
+    }
+
+    b3.addEventListener("click", saludar);
+    
+
+  </script>
+
+</body>
+</html>

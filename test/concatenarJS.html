@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //En JS existen 3 formas: '', "", ``
+    //`` => Asignar valores multilinea, inyectar variables
+    let apellidos = 'Hernandez Yeren';
+    let nombres = 'Yorghet';
+    let saludo = `
+      Esta es una
+      cadena escrita
+      en varias líneas
+      solo funciona con comillas invertidas (JS)
+    `;
+
+    //let datosCompletos = "Hola " + apellidos + " " + nombres + " un gusto saludarte";
+    let datosCompletos = `Hola ${apellidos} ${nombres} un gusto saludarte`;
+    console.log(datosCompletos);
+  </script>
+
+</body>
+</html>

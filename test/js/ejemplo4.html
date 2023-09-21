@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <ul id="lista">
+    <li>Rojo</li>
+  </ul>
+  
+  <input type="text" id="color">
+  <button type="button" id="agregar">Agregar</button>
+
+  <script>
+    const lista = document.querySelector("#lista")
+    const color = document.querySelector("#color")
+    const agregar = document.querySelector("#agregar")
+
+    function agregarItem(){
+      //Cada nuevo elemento, es realmente una nueva ETIQUETA <li></li>
+      //que se deberá agregar en el contenedor PADRE (PARENT) "lista"
+      //PASO 1: Construir el elemento
+      let nuevaEtiqueta = document.createElement("li")
+      nuevaEtiqueta.innerHTML = color.value;
+      //append() agregar, child hijo
+      lista.appendChild(nuevaEtiqueta);
+    }
+
+    //Filas en las tablas
+    function agregarItemBasico(){
+      lista.innerHTML += `<li>${color.value}</li>`;
+    }
+
+    agregar.addEventListener("click", agregarItemBasico);
+  </script>
+</body>
+</html>
