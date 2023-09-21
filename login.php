@@ -62,16 +62,48 @@
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () =>{
-      const nombreusuario   = document.querySelector("#nombreusuario");
-      const claveacceso     = document.querySelector("#claveacceso");
-      const formulario      = document.querySelector("#formulario-login");
-      const iniciarsesion   = document.querySelector("#iniciarsesion");
+  
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const usuario = document.querySelector("#usuario");
+            const claveacceso = document.querySelector("#claveacceso");
+            const acceder = document.querySelector("#acceder");
 
-      
-    });
-  </script>
+            function login(){
+                if (usuario.value == "" || claveacceso.value == ""){
+                    alert("Indicar los datos solicitados");
+                    usuario.focus();
+                }
+                else
+                {
+                    //Enviaremos parámetros
+                    let parametros = new FormData();
+                    parametros.append("operacion", "login");
+                    parametros.append("usuario", usuario.value);
+                    parametros.append("claveacceso", claveacceso.value);
+
+                    fetch(`./controllers/usuario.controller.php`, {
+                        method: "POST",
+                        body: parametros
+                    })
+                        .then(respuesta => respuesta.json())
+                        .then(datos => {
+                            console.log(datos)
+                            if(datos.login == true){
+                                window.location.href = "views/index.php"
+                            }
+                        })
+                        .catch(e => {
+                            console.error(e)
+                        });
+                }
+            }
+
+            acceder.addEventListener("click", login);
+
+        })
+    </script>
+
 </body>
 
 </html>
